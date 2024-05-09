@@ -211,5 +211,46 @@ class Ccc_Manufacturer_Adminhtml_OrderstockController extends Mage_Adminhtml_Con
         }
     }
 
+    public function sendemailAction()
+    {
+        // echo 123;
+        $data = $this->getRequest()->getParam('data');
+        $itemsToUpdate = json_decode($data, true);
+        foreach ($itemsToUpdate as $_itemid) {
+            //item data
+            $data = Mage::getModel('sales/order_item')->load($_itemid);
+
+            //brand data
+            $attribute = Mage::getSingleton('eav/config')->getAttribute('catalog_product', 'brand');
+            if ($attribute->usesSource()) {
+                $brandOptionText = $attribute->getSource()->getOptionText($data->getBrand());
+            }
+            
+            //mfr brand data
+            $brandData = Mage::getModel('manufacturer/brand')->load($data->getBrand(), 'brand_id');
+
+            //mfr data
+            $mfrData = Mage::getModel('manufacturer/manufacturer')->load($brandData->getMfrId());
+
+            $senderName = Mage::getStoreConfig('trans_email/ident_general/name');
+            $senderEmail = Mage::getStoreConfig('trans_email/ident_general/email');
+
+            // Set recipient information
+            $recipientEmail = $mfrData->getEmail();
+            $recipientName = $mfrData->getManufacturerName();
+            // Set email template variables
+            $emailTemplateVariables = array(
+                'product_name' => $data->getName(),
+                'sku' => $data->getSku(),
+                'qty' => $data->getQtyOrdered(),
+                'brand' => $brandOptionText,
+            );
+            // Load and send the email
+            $emailTemplate = Mage::getModel('core/email_template')->load('mfr_email','template_code');
+            $emailTemplate->setSenderName($senderName);
+            $emailTemplate->setSenderEmail($senderEmail);
+            $emailTemplate->send($recipientEmail, $recipientName, $emailTemplateVariables);
+        }
+    }
 
 }

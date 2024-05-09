@@ -6142,3 +6142,199 @@ Stack trace:
 #10 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
 #11 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
 #12 {main}
+2024-05-09T08:40:14+00:00 ERR (3): 
+Exception: This letter cannot be sent. in C:\xampp\htdocs\1SBMagento\app\code\community\Aschroder\SMTPPro\Model\Email\Template.php:40
+Stack trace:
+#0 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Manufacturer\controllers\Adminhtml\OrderstockController.php(253): Aschroder_SMTPPro_Model_Email_Template->send(NULL, NULL, Array)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Manufacturer_Adminhtml_OrderstockController->sendemailAction()
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('sendemail')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#5 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#6 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#7 {main}
+2024-05-09T08:40:14+00:00 ERR (3): 
+Exception: This letter cannot be sent. in C:\xampp\htdocs\1SBMagento\app\code\community\Aschroder\SMTPPro\Model\Email\Template.php:40
+Stack trace:
+#0 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Manufacturer\controllers\Adminhtml\OrderstockController.php(253): Aschroder_SMTPPro_Model_Email_Template->send('vashah1413@gmai...', 'Dhanraj', Array)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Manufacturer_Adminhtml_OrderstockController->sendemailAction()
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('sendemail')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#5 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#6 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#7 {main}
+2024-05-09T08:40:14+00:00 ERR (3): 
+Exception: This letter cannot be sent. in C:\xampp\htdocs\1SBMagento\app\code\community\Aschroder\SMTPPro\Model\Email\Template.php:40
+Stack trace:
+#0 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Manufacturer\controllers\Adminhtml\OrderstockController.php(253): Aschroder_SMTPPro_Model_Email_Template->send('shahvandit141@g...', 'Raj', Array)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Manufacturer_Adminhtml_OrderstockController->sendemailAction()
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('sendemail')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#5 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#6 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#7 {main}
+2024-05-09T08:46:50+00:00 ERR (3): 
+Zend_Mail_Protocol_Exception: No recipient forward path has been supplied in C:\xampp\htdocs\1SBMagento\lib\Zend\Mail\Protocol\Smtp.php:309
+Stack trace:
+#0 C:\xampp\htdocs\1SBMagento\lib\Zend\Mail\Transport\Smtp.php(215): Zend_Mail_Protocol_Smtp->data('Subject: =\?utf-...')
+#1 C:\xampp\htdocs\1SBMagento\lib\Zend\Mail\Transport\Abstract.php(348): Zend_Mail_Transport_Smtp->_sendMail()
+#2 C:\xampp\htdocs\1SBMagento\lib\Zend\Mail.php(1194): Zend_Mail_Transport_Abstract->send(Object(Zend_Mail))
+#3 C:\xampp\htdocs\1SBMagento\app\code\community\Aschroder\SMTPPro\Model\Email\Template.php(132): Zend_Mail->send(Object(Zend_Mail_Transport_Smtp))
+#4 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Manufacturer\controllers\Adminhtml\OrderstockController.php(252): Aschroder_SMTPPro_Model_Email_Template->send(NULL, NULL, Array)
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Manufacturer_Adminhtml_OrderstockController->sendemailAction()
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('sendemail')
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#9 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#10 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#11 {main}
+2024-05-09T12:45:44+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address\Total\Shipping.php(155): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(1013): Mage_Sales_Model_Quote_Address_Total_Shipping->collect(Object(Mage_Sales_Model_Quote_Address))
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote.php(1331): Mage_Sales_Model_Quote_Address->collectTotals()
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Model\Type\Onepage.php(370): Mage_Sales_Model_Quote->collectTotals()
+#12 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Catalog\controllers\OnepageController.php(58): Mage_Checkout_Model_Type_Onepage->saveBilling(Array, '93')
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Catalog_OnepageController->saveBillingAction()
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('saveBilling')
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#16 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#17 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#18 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#19 {main}
+2024-05-09T12:45:45+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Block\Onepage\Shipping\Method\Available.php(44): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\design\frontend\base\default\template\checkout\onepage\shipping_method\available.phtml(28): Mage_Checkout_Block_Onepage_Shipping_Method_Available->getShippingRates()
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(241): include('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(272): Mage_Core_Block_Template->fetchView('frontend\\base\\d...')
+#12 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(286): Mage_Core_Block_Template->renderView()
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Abstract.php(923): Mage_Core_Block_Template->_toHtml()
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\Layout.php(555): Mage_Core_Block_Abstract->toHtml()
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\controllers\OnepageController.php(130): Mage_Core_Model_Layout->getOutput()
+#16 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Catalog\controllers\OnepageController.php(71): Mage_Checkout_OnepageController->_getShippingMethodsHtml()
+#17 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Catalog_OnepageController->saveBillingAction()
+#18 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('saveBilling')
+#19 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#20 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#21 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#22 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#23 {main}
+2024-05-09T12:45:55+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address\Total\Shipping.php(155): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(1013): Mage_Sales_Model_Quote_Address_Total_Shipping->collect(Object(Mage_Sales_Model_Quote_Address))
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote.php(1331): Mage_Sales_Model_Quote_Address->collectTotals()
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Payment.php(148): Mage_Sales_Model_Quote->collectTotals()
+#12 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Model\Type\Onepage.php(662): Mage_Sales_Model_Quote_Payment->importData(Object(Varien_Object))
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\controllers\OnepageController.php(498): Mage_Checkout_Model_Type_Onepage->savePayment(Array)
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Mage_Checkout_OnepageController->savePaymentAction()
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('savePayment')
+#16 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#17 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#18 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#19 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#20 {main}
+2024-05-09T12:48:30+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address\Total\Shipping.php(155): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(1013): Mage_Sales_Model_Quote_Address_Total_Shipping->collect(Object(Mage_Sales_Model_Quote_Address))
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote.php(1331): Mage_Sales_Model_Quote_Address->collectTotals()
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Model\Type\Onepage.php(370): Mage_Sales_Model_Quote->collectTotals()
+#12 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Catalog\controllers\OnepageController.php(58): Mage_Checkout_Model_Type_Onepage->saveBilling(Array, '93')
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Catalog_OnepageController->saveBillingAction()
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('saveBilling')
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#16 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#17 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#18 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#19 {main}
+2024-05-09T12:48:32+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Block\Onepage\Shipping\Method\Available.php(44): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\design\frontend\base\default\template\checkout\onepage\shipping_method\available.phtml(28): Mage_Checkout_Block_Onepage_Shipping_Method_Available->getShippingRates()
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(241): include('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(272): Mage_Core_Block_Template->fetchView('frontend\\base\\d...')
+#12 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Template.php(286): Mage_Core_Block_Template->renderView()
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Block\Abstract.php(923): Mage_Core_Block_Template->_toHtml()
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\Layout.php(555): Mage_Core_Block_Abstract->toHtml()
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\controllers\OnepageController.php(130): Mage_Core_Model_Layout->getOutput()
+#16 C:\xampp\htdocs\1SBMagento\app\code\local\Ccc\Catalog\controllers\OnepageController.php(71): Mage_Checkout_OnepageController->_getShippingMethodsHtml()
+#17 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Ccc_Catalog_OnepageController->saveBillingAction()
+#18 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('saveBilling')
+#19 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#20 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#21 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#22 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#23 {main}
+2024-05-09T12:48:40+00:00 ERR (3): 
+SoapFault exception: [HTTP] Could not connect to host in C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php:410
+Stack trace:
+#0 [internal function]: SoapClient->__doRequest('\<\?xml version="...', 'https://wsbeta....', 'getRates', 1, 0)
+#1 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(410): SoapClient->__call('getRates', Array)
+#2 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(439): Mage_Usa_Model_Shipping_Carrier_Fedex->_doRatesRequest('general')
+#3 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Usa\Model\Shipping\Carrier\Fedex.php(186): Mage_Usa_Model_Shipping_Carrier_Fedex->_getQuotes()
+#4 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(209): Mage_Usa_Model_Shipping_Carrier_Fedex->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#5 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Shipping\Model\Shipping.php(129): Mage_Shipping_Model_Shipping->collectCarrierRates('fedex', Object(Mage_Shipping_Model_Rate_Request))
+#6 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(944): Mage_Shipping_Model_Shipping->collectRates(Object(Mage_Shipping_Model_Rate_Request))
+#7 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(875): Mage_Sales_Model_Quote_Address->requestShippingRates()
+#8 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address\Total\Shipping.php(155): Mage_Sales_Model_Quote_Address->collectShippingRates()
+#9 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Address.php(1013): Mage_Sales_Model_Quote_Address_Total_Shipping->collect(Object(Mage_Sales_Model_Quote_Address))
+#10 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote.php(1331): Mage_Sales_Model_Quote_Address->collectTotals()
+#11 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Sales\Model\Quote\Payment.php(148): Mage_Sales_Model_Quote->collectTotals()
+#12 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\Model\Type\Onepage.php(662): Mage_Sales_Model_Quote_Payment->importData(Object(Varien_Object))
+#13 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Checkout\controllers\OnepageController.php(498): Mage_Checkout_Model_Type_Onepage->savePayment(Array)
+#14 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Mage_Checkout_OnepageController->savePaymentAction()
+#15 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('savePayment')
+#16 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#17 C:\xampp\htdocs\1SBMagento\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#18 C:\xampp\htdocs\1SBMagento\app\Mage.php(686): Mage_Core_Model_App->run(Array)
+#19 C:\xampp\htdocs\1SBMagento\index.php(83): Mage::run('', 'store')
+#20 {main}

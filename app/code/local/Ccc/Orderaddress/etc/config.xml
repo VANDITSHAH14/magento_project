@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Ccc_Orderaddress>
+            <version>2.1</version>
+        </Ccc_Orderaddress>
+    </modules>
+    <global>
+        <models>
+            <ccc_orderaddress>
+                <class>Ccc_Orderaddress_Model</class>
+            </ccc_orderaddress>
+        </models>
+        <resources>
+            <ccc_orderaddress_setup>
+                <setup>
+                    <module>Ccc_Orderaddress</module>
+                </setup>
+            </ccc_orderaddress_setup>
+        </resources>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <ccc_orderaddress_varification>
+                        <class>ccc_orderaddress/observer</class>
+                        <method>addressVarification</method>
+                    </ccc_orderaddress_varification>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+</config>

@@ -20,7 +20,8 @@ class Ccc_Catalog_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_
             array('rc' => Mage::getSingleton('core/resource')->getTableName('sales/order')),
             'rc.increment_id = main_table.increment_id',
             [
-                'delivery_note' => 'rc.delivery_note'
+                'delivery_note' => 'rc.delivery_note',
+                'address_validation_required' =>'rc.address_validation_required'
             ]
         );
         if ($limit != 0) {
@@ -185,6 +186,11 @@ class Ccc_Catalog_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_
             'type'  => 'options',
             'width' => '70px',
             'options' => Mage::getSingleton('sales/order_config')->getStatuses(),
+        ));
+        $this->addColumn('address_validation_required', array(
+            'header' => Mage::helper('sales')->__('Address Validation'),
+            'index' => 'address_validation_required',
+            'renderer' => 'Ccc_Catalog_Block_Adminhtml_Sales_Order_Renderer_Address',
         ));
 
         if (Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/view')) {

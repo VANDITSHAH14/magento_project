@@ -115,4 +115,12 @@ class Ccc_Catalog_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Control
             
         return Mage::getSingleton('admin/session')->isAllowed($aclResource);
     }
+    public function validateAddressAction()
+    {
+        $id = $this->getRequest()->getParam('order_id');
+        $data = Mage::getModel('sales/order')->load($id);
+        $data['address_validation_required'] = '2';
+        $data->setData($data->getData())->save();
+        $this->_redirect('*/*/index');
+    }
 }
