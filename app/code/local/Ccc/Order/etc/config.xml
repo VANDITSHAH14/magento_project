@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ccc_Order>
+            <version>1.0</version>
+        </Ccc_Order>
+    </modules>
+    <adminhtml>
+        <layout>
+            <updates>
+                <order>
+                    <file>order.xml</file>
+                </order>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <order>
+                <class>Ccc_Order_Model</class>
+                <resourceModel>order_resource</resourceModel>
+            </order>
+            <order_resource>
+                <class>Ccc_Order_Model_Resource</class>
+                <!-- <deprecatedNode>banner_mysql4</deprecatedNode> -->
+                <entities>
+                    <order>
+                        <table>sales_order_status_count</table>
+                    </order>
+                </entities>
+            </order_resource>
+        </models>
+        <resources>
+            <orderstatus_setup>
+                <setup>
+                    <module>Ccc_Order</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </orderstatus_setup>
+        </resources>
+        <blocks>
+            <order>
+                <class>Ccc_Order_Block</class>
+            </order>
+        </blocks>
+        <helpers>
+            <order>
+                <class>Ccc_Order_Helper</class>
+            </order>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ccc_order before="Mage_Adminhtml">Ccc_Order_Adminhtml</ccc_order>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
+    

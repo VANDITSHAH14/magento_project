@@ -882,19 +882,23 @@ Review.prototype = {
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
     },
 
-    save: function(){
-        if (checkout.loadWaiting!=false) return;
+    save: function () {
+        if (checkout.loadWaiting != false) return;
         checkout.setLoadWaiting('review');
         var params = Form.serialize(payment.form);
         if (this.agreementsForm) {
-            params += '&'+Form.serialize(this.agreementsForm);
+            params += '&' + Form.serialize(this.agreementsForm);
         }
+        var deliveryNote = $('delivery_note').value; // Assuming delivery_note is the ID of the textarea
+
+        // Append delivery note data to the parameters
+        params += '&delivery_note=' + encodeURIComponent(deliveryNote);
         params.save = true;
         new Ajax.Request(
             this.saveUrl,
             {
-                method:'post',
-                parameters:params,
+                method: 'post',
+                parameters: params,
                 onComplete: this.onComplete,
                 onSuccess: this.onSave,
                 onFailure: checkout.ajaxFailure.bind(checkout)

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_order_index>
+        <reference name="content">
+            <block type="order/adminhtml_order" name="order"></block>
+        </reference>
+    </adminhtml_order_index>
+    <adminhtml_order_new>
+        <update handle="adminhtml_order_edit" />
+    </adminhtml_order_new>
+    <adminhtml_order_edit>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="order/adminhtml_order_edit" name="order_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="order/adminhtml_order_edit_tabs" name="adminhtml_order_edit_tabs">
+                <block type="order/adminhtml_order_edit_tab_main"
+                    name="adminhtml_order_edit_tab_main" />
+                <block type="order/adminhtml_order_edit_tab_option"
+                    name="adminhtml_order_edit_tab_option"
+                    template="ccc/order/option.phtml" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>adminhtml_order_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>option_section</name>
+                    <block>adminhtml_order_edit_tab_option</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_order_edit>
+    <adminhtml_sales_order_create_index>
+        <reference name="data">
+            <block type="order/adminhtml_order_create_deliverynote"
+                template="ccc/sales/order/create/abstract.phtml" name="delivery">
+                <block type="order/adminhtml_order_create_deliverynote_form"
+                template="ccc/sales/order/deliverynote.phtml" name="delivery_notee"/>
+            </block>
+            <block type="order/adminhtml_order_create_address"
+                template="ccc/sales/order/create/abstract.phtml" name="address">
+                <block type="order/adminhtml_order_create_address_form"
+                template="ccc/sales/order/address.phtml" name="address_a"/>
+            </block>
+        </reference>
+    </adminhtml_sales_order_create_index>
+</layout>

@@ -1,0 +1,107 @@
+<style>
+    .summary-dropdown {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    .dropdown-menu{
+        display:none;
+    }
+</style>
+
+<!-- <table border="1px solid black">
+<tbody>
+            <tr class="even">
+                <td class="a-left"><?php echo $this->__('Order Count') ?></td>
+                <?php foreach ($this->getOrderStatus() as $status) : ?>
+                    <td><?php echo $status->getStatus() . '-' . $this->getCount($status->getStatus()) ?></td>
+                <?php endforeach; ?>
+            </tr>
+            <tr class="odd">
+                <td class="a-left"><?php echo $this->__('Range') ?></td>
+                <?php foreach ($this->getOrderStatus() as $status) : ?>
+                    <td>
+                        <span class="dropdown-trigger" onmouseover="openSelect(<?php echo $status->getId(); ?>)" onmouseout="closeSelect(<?php echo $status->getId(); ?>)">
+                            <div class="dropdown">
+                                <?php echo $this->__('Select Range') ?>
+                                <div id="dropdown-menu-<?php echo $status->getId(); ?>" class="dropdown-menu">
+                                    <?php echo $this->getRange($status->getTotalRange(), $status->getStatus()); ?>
+                                </div>
+                            </div>
+                        </span>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        </tbody>
+</table> -->
+<div class="summary-dropdown">
+    <div>
+        Status Summary Count:
+    </div>
+    <div>
+        <?php
+        foreach ($this->getOrderStatus() as $_order) { ?>
+            <select name="status" id="select_<?php echo $_order->getId(); ?>" onmouseover="openSelect(<?php echo $_order->getId() ?>)"
+                onmouseout="closeSelect(<?php echo $_order->getId() ?>)">
+                <option><?php echo $_order->getStatus() . "-" . $this->getCount($_order->getStatus()); ?>
+                <?= $this->getRange($_order->getTotalRange(), $_order->getStatus()) ?></option>
+                
+            </select>
+        <?php } ?>
+    </div>
+</div>
+<br>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $this->getHeaderWidth() ?>"><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $this->getButtonsHtml() ?></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <?php echo $this->getGridHtml(); ?>
+</div>
+<script>
+    // function openSelect(id) {
+    //     var select = document.getElementById("dropdown-menu-" + id);
+    //     select.style.display = "block";
+    // }
+
+
+    // function closeSelect(id) {
+    //     var select = document.getElementById("dropdown-menu-" + id);
+    //     select.style.display = "none";
+    // }
+    
+    function openSelect(id) {
+        var select = document.getElementById("select_" + id);
+        select.size = select.options.length;
+    }
+
+
+    function closeSelect(id) {
+        var select = document.getElementById("select_" + id);
+        select.size = 1;
+    }
+
+    function data(statusId, status) {
+        var rangeArray = statusId.split("-");
+        var url = "http://127.0.0.1/1SBMAGENTO/index.php/admin/sales_order/index";
+        url += "/key/" + FORM_KEY;
+        var parameters = {
+            start: rangeArray[0],
+            end: rangeArray[1],
+            status: status,
+        };
+        new Ajax.Request(url, {
+            method: "post",
+            parameters: parameters,
+            onSuccess: function(response) {
+                document.body.innerHTML = response.responseText;
+            },
+        });
+
+    }
+</script>

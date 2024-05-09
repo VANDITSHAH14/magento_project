@@ -1,0 +1,9 @@
+<config>
+    <menu>
+        <manufacturer translate="title" module="manufacturer">
+            <title>Manufacturer</title>
+            <sort_order>100</sort_order>
+            <action>adminhtml/orderstock</action>
+        </manufacturer>
+    </menu>
+</config>

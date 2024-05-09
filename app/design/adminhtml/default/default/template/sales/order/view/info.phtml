@@ -154,7 +154,9 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
             <div class="tools"><?php echo $this->getAddressEditLink($_order->getBillingAddress())?></div>
         </div>
         <fieldset>
-            <address><?php echo $_order->getBillingAddress()->getFormated(true) ?></address>
+            <address><?php echo $_order->getBillingAddress()->getFormated(true) ?>
+            <?php echo $this->getChildHtml('address_proof');?>
+            </address>
         </fieldset>
     </div>
 </div>

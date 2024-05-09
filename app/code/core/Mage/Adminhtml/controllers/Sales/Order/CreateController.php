@@ -477,7 +477,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
 
     /**
      * Saving quote and create order
-     */
+     */   
     public function saveAction()
     {
         try {
@@ -497,7 +497,6 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
                 ->setIsValidate(true)
                 ->importPostData($this->getRequest()->getPost('order'))
                 ->createOrder();
-
             $this->_getSession()->clear();
             Mage::getSingleton('adminhtml/session')->addSuccess($this->__('The order has been created.'));
             if (Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/view')) {

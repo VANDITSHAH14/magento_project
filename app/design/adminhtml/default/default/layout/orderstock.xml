@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_orderstock_index>
+        <reference name="content">
+            <block type="manufacturer/adminhtml_manufacturer" name="manufacturer"></block>
+        </reference>
+    </adminhtml_orderstock_index>
+    <adminhtml_orderstock_new>
+        <update handle="adminhtml_orderstock_edit" />
+    </adminhtml_orderstock_new>
+    <adminhtml_orderstock_edit>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="manufacturer/adminhtml_manufacturer_edit" name="manufacturer_edit"></block>
+        </reference>
+    </adminhtml_orderstock_edit>
+    <adminhtml_sales_order_view>
+        <reference name="order_items">
+            <action method="setTemplate">
+                <template>ccc/sales/order/view/items.phtml</template>
+            </action>
+            <action method="addItemRender">
+                <type>default</type>
+                <block>adminhtml/sales_order_view_items_renderer_default</block>
+                <template>ccc/sales/order/view/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addJs">
+                <script>ccc/manufacturer/order.js</script>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

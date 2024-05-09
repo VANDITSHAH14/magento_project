@@ -1,0 +1,5 @@
+<?php
+class Ccc_Manufacturer_Block_Adminhtml_Sales_Order_View_Items_Renderer_Default extends Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default
+{
+
+}

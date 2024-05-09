@@ -1,0 +1,44 @@
+<layout version="0.1.0">
+    <default>
+        <reference name="minicart_content">
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>ccc/catalog/minicart.phtml</template></action>
+            <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>ccc/catalog/minicart.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>ccc/catalog/minicart.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>ccc/catalog/minicart.phtml</template></action>
+        </reference>
+    </default>
+    <checkout_cart_index>
+        <reference name="checkout.cart">
+            <action method="addItemRender">
+                <type>simple</type>
+                <block>checkout/cart_item_renderer</block>
+                <template>ccc/catalog/cart.phtml</template>
+            </action>
+            <action method="addItemRender">
+                <type>grouped</type>
+                <block>checkout/cart_item_renderer_grouped</block>
+                <template>ccc/catalog/cart.phtml</template>
+            </action>
+            <action method="addItemRender">
+                <type>configurable</type>
+                <block>checkout/cart_item_renderer_configurable</block>
+                <template>ccc/catalog/cart.phtml</template>
+            </action>
+        </reference>
+    </checkout_cart_index>
+    <checkout_onepage_index>
+        <reference name="checkout.onepage.billing">
+            <action method="setTemplate">
+                <template>ccc/checkout/billing.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_review>
+        <reference name="checkout.onepage.review.info.totals">
+            <action method="setTemplate">
+                <template>ccc/checkout/totals.phtml</template>
+            </action>
+            
+        </reference>
+    </checkout_onepage_review>
+</layout>

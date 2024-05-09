@@ -526,6 +526,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
 
     /**
      * Get Order by quoteId
+     * 
      *
      * @throws Mage_Payment_Model_Info_Exception
      * @return Mage_Sales_Model_Order

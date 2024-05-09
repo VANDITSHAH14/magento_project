@@ -1,0 +1,9 @@
+2024-04-08T10:31:45+00:00 INFO (6): (mem 13.03 Mb) ( 10,  85) products (processed, max)
+2024-04-08T10:31:45+00:00 INFO (6): (mem 13.15 Mb) ( 20,  85) products (processed, max)
+2024-04-08T10:31:45+00:00 INFO (6): (mem 13.22 Mb) ( 30,  85) products (processed, max)
+2024-04-08T10:31:46+00:00 INFO (6): (mem 13.32 Mb) ( 40,  85) products (processed, max)
+2024-04-08T10:31:46+00:00 INFO (6): (mem 13.39 Mb) ( 50,  85) products (processed, max)
+2024-04-08T10:31:46+00:00 INFO (6): (mem 13.46 Mb) ( 60,  85) products (processed, max)
+2024-04-08T10:31:47+00:00 INFO (6): (mem 13.58 Mb) ( 70,  85) products (processed, max)
+2024-04-08T10:31:47+00:00 INFO (6): (mem 13.62 Mb) ( 80,  85) products (processed, max)
+2024-04-08T10:31:47+00:00 INFO (6): (mem 13.57 Mb) products (added, skipped)( 85,   0) to file C:\xampp\htdocs\1SBMagento\var\rw_google_base\google_base_default.tsv

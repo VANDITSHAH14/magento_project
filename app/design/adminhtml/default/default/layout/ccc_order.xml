@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name='order_tab_info'>
+            <action method="setTemplate">
+                <template>ccc/sales/order/view/tab/info.phtml</template>
+            </action>
+            <block type="ccc_catalog/adminhtml_address" name="delivery_note"
+                template="ccc/sales/order/delivery_note.phtml"></block>
+        </reference>
+        <reference name='order_info'>
+            <block type="ccc_catalog/adminhtml_addressproof" name="address_proof"
+                template="ccc/sales/order/address_info.phtml"></block>
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_sales_order_index>
+        <reference name="sales_order.grid.container">
+            <block type="ccc_catalog/adminhtml_sales_order" name="admin_sales_order.grid.container"></block>
+        </reference>
+    </adminhtml_sales_order_index>
+    <adminhtml_sales_order_edit>
+        <reference name="content">
+            <block type="ccc_catalog/adminhtml_sales_order_edit"
+                name="admin_sales_order_edit.form.container"></block>
+        </reference>
+    </adminhtml_sales_order_edit>
+</layout>

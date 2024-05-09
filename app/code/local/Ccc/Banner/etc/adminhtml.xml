@@ -1,0 +1,78 @@
+<config>
+    <menu>
+        <banner translate="title" module="banner">
+            <title>Banner</title>
+            <sort_order>100</sort_order>
+            <children>
+                <banner module="banner">
+                    <title>Banner</title>
+                    <action>adminhtml/banner</action>
+                    <!-- <sort_order>0</sort_order> -->
+                </banner>
+                <!-- <slider translate="title" module="banner">
+                    <title>Slider</title>
+                    <action>adminhtml/cms_block</action>
+                    <sort_order>10</sort_order>
+                </slider> -->
+            </children>
+        </banner>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <banner translate="title" module="banner">
+                        <title>Banner</title>
+                        <sort_order>100</sort_order>
+                        <children>
+                            <banner module="banner">
+                                <title>Banner</title>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <index translate="title">
+                                                <title>Index</title>
+                                            </index>
+                                            <show_Button translate="title">
+                                                <title>show_Button</title>
+                                            </show_Button>
+                                            <show_title translate="title">
+                                                <title>show_title</title>
+                                            </show_title>
+                                            <show_all translate="title">
+                                                <title>show_all</title>
+                                            </show_all>
+                                            <new translate="title">
+                                                <title>new</title>
+                                            </new>
+                                            <edit translate="title">
+                                                <title>edit</title>
+                                            </edit>
+                                            <save translate="title">
+                                                <title>save</title>
+                                            </save>
+                                        </children>
+                                    </actions>
+                                </children>
+                                <!-- <sort_order>0</sort_order> -->
+                            </banner>
+                        </children>
+                    </banner>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <banner translate="title" module="banner">
+                                        <title>Change?</title>
+                                    </banner>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+</config>

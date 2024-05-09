@@ -1,0 +1,16 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-payment-method"><?php echo Mage::helper('sales')->__('Delivery note') ?></h4>
+        <div class="tools"><?php echo $this->getNoteEditLink($this->getOrder()); ?></div>
+    </div>
+    <fieldset>
+        <?php
+        if ($this->isAllowedDeliveryNote()){
+
+            echo $this->getOrder()->getDeliveryNote();
+        }else{
+            echo "You Have Not Permission To Show";
+        }
+        ?>
+    </fieldset>
+</div>
