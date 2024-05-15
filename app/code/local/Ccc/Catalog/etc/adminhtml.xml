@@ -30,6 +30,7 @@
                                         <title>Actions</title>
                                         <children>
                                             <delivery_note translate="title"><title>Delivery Note</title></delivery_note>
+                                            <send_email translate="title"><title>Email</title></send_email>
                                         </children>
                                     </actions>
                                 </children>

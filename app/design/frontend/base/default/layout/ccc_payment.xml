@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_paymentmethod>
+        <block type="ccc_payment/onepage_payment_methods" name="root" output="toHtml"
+            template="ccc/checkout/onepage/payment/methods.phtml">
+        </block>
+    </checkout_onepage_paymentmethod>
+</layout>   

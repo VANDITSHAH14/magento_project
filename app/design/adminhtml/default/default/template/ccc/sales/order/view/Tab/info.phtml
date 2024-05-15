@@ -46,6 +46,9 @@
                 <fieldset>
                     <?php echo $this->getPaymentHtml() ?>
                     <div>
+                        <?php echo $this->getChildHtml('paybycheck'); ?>
+                    </div>
+                    <div>
                         <?php echo Mage::helper('sales')->__('Order was placed using %s', $_order->getOrderCurrencyCode()) ?>
                     </div>
                 </fieldset>

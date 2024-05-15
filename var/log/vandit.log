@@ -119,3 +119,192 @@
     [created_at] => 2024-05-09 12:48:58
 )
 
+2024-05-09T12:57:26+00:00 DEBUG (7): Array
+(
+    [order_id] => 257
+    [item_id] => 674
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 12:57:26
+)
+
+2024-05-09T12:57:37+00:00 DEBUG (7): Array
+(
+    [order_id] => 258
+    [item_id] => 675
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 12:57:37
+)
+
+2024-05-09T13:00:05+00:00 DEBUG (7): Array
+(
+    [order_id] => 259
+    [item_id] => 676
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 13:00:05
+)
+
+2024-05-09T13:00:43+00:00 DEBUG (7): Array
+(
+    [order_id] => 260
+    [item_id] => 677
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 13:00:43
+)
+
+2024-05-09T13:00:59+00:00 DEBUG (7): Array
+(
+    [order_id] => 261
+    [item_id] => 678
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 13:00:59
+)
+
+2024-05-09T13:01:30+00:00 DEBUG (7): Array
+(
+    [order_id] => 262
+    [item_id] => 679
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 13:01:30
+)
+
+2024-05-09T13:02:03+00:00 DEBUG (7): Array
+(
+    [order_id] => 263
+    [item_id] => 680
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-09 13:02:03
+)
+
+2024-05-10T04:55:13+00:00 DEBUG (7): Array
+(
+    [order_id] => 264
+    [item_id] => 681
+    [brand_id] => 246
+    [mfr_id] => 3
+    [created_at] => 2024-05-10 04:55:13
+)
+
+2024-05-10T05:07:43+00:00 DEBUG (7): Array
+(
+    [order_id] => 265
+    [item_id] => 682
+    [brand_id] => 
+    [mfr_id] => 
+    [created_at] => 2024-05-10 05:07:43
+)
+
+2024-05-10T05:15:23+00:00 DEBUG (7): Array
+(
+    [order_id] => 266
+    [item_id] => 683
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-10 05:15:23
+)
+
+2024-05-10T05:21:09+00:00 DEBUG (7): Array
+(
+    [order_id] => 267
+    [item_id] => 684
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-10 05:21:09
+)
+
+2024-05-10T06:29:42+00:00 DEBUG (7): Array
+(
+    [order_id] => 268
+    [item_id] => 685
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-10 06:29:41
+)
+
+2024-05-10T06:34:56+00:00 DEBUG (7): Array
+(
+    [order_id] => 269
+    [item_id] => 686
+    [brand_id] => 246
+    [mfr_id] => 3
+    [created_at] => 2024-05-10 06:34:56
+)
+
+2024-05-10T11:25:19+00:00 DEBUG (7): Array
+(
+    [order_id] => 270
+    [item_id] => 687
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-10 11:25:19
+)
+
+2024-05-10T11:25:19+00:00 DEBUG (7): Array
+(
+    [order_id] => 270
+    [item_id] => 688
+    [brand_id] => 
+    [mfr_id] => 
+    [created_at] => 2024-05-10 11:25:19
+)
+
+2024-05-13T07:42:03+00:00 DEBUG (7): Array
+(
+    [order_id] => 271
+    [item_id] => 689
+    [brand_id] => 246
+    [mfr_id] => 3
+    [created_at] => 2024-05-13 07:42:03
+)
+
+2024-05-13T09:45:33+00:00 DEBUG (7): Array
+(
+    [order_id] => 272
+    [item_id] => 690
+    [brand_id] => 
+    [mfr_id] => 
+    [created_at] => 2024-05-13 09:45:33
+)
+
+2024-05-14T05:57:51+00:00 DEBUG (7): Array
+(
+    [order_id] => 273
+    [item_id] => 691
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-14 05:57:51
+)
+
+2024-05-14T06:21:28+00:00 DEBUG (7): Array
+(
+    [order_id] => 274
+    [item_id] => 692
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-14 06:21:28
+)
+
+2024-05-14T12:35:40+00:00 DEBUG (7): Array
+(
+    [order_id] => 275
+    [item_id] => 693
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-14 12:35:40
+)
+
+2024-05-14T12:35:40+00:00 DEBUG (7): Array
+(
+    [order_id] => 275
+    [item_id] => 694
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-14 12:35:40
+)
+

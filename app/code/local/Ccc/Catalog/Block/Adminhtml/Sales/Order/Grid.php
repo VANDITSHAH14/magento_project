@@ -76,6 +76,12 @@ class Ccc_Catalog_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_
                 'url'  => $this->getUrl('*/sales_order/massCancel'),
             ));
         }
+        if (Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/sendemail')) {
+            $this->getMassactionBlock()->addItem('send_email', array(
+                'label' => Mage::helper('sales')->__('send Email'),
+                'url'  => $this->getUrl('*/sales_order/massSendEmail'),
+            ));
+        }
 
         if (Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/hold')) {
             $this->getMassactionBlock()->addItem('hold_order', array(

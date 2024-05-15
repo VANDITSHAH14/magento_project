@@ -100,6 +100,33 @@ class Ccc_Catalog_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Control
         }
         $this->_redirect('*/sales_order/');
     }
+    public function massSendEmailAction()
+    {
+        $orderIds = $this->getRequest()->getPost('order_ids', array());
+        foreach ($orderIds as $orderId) {
+            $order = Mage::getModel('sales/order')->load($orderId);
+            $customerId = $order->getCustomerId();
+            $data = Mage::getModel('sales/order')->load($customerId, 'customer_id');
+            $customerData = Mage::getModel('customer/customer')->load($customerId);
+
+            $senderName = Mage::getStoreConfig('trans_email/ident_general/name');
+            $senderEmail = Mage::getStoreConfig('trans_email/ident_general/email');
+
+            $recipientEmail = $customerData->getEmail();
+            $recipientName = $customerData->getName();
+            $emailTemplateVariables = array(
+                'order_number' => $data->getIncrementId(),
+                'customer_name' => $customerData->getName()
+            );
+
+            $emailTemplate = Mage::getModel('core/email_template')->load('address_varification_mail', 'template_code');
+            $emailTemplate->setSenderName($senderName);
+            $emailTemplate->setSenderEmail($senderEmail);
+            $emailTemplate->send($recipientEmail, $recipientName, $emailTemplateVariables);
+
+        }
+        $this->_redirect('*/*/');
+    }
     protected function _isAllowed()
     {
         $aclResource=null;
@@ -107,6 +134,9 @@ class Ccc_Catalog_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Control
         switch ($action) {
             case 'delivery_note':
                 $aclResource = 'sales/order/actions/delivery_note';
+                break;
+            case 'send_email':
+                $aclResource = 'sales/order/actions/sendemail';
                 break;
             default:
                 $aclResource = 'sales/order';

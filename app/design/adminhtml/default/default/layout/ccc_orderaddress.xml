@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_edit">
+            <block type="ccc_orderaddress/adminhtml_view" name="orderaddress_validation"></block>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>
+    

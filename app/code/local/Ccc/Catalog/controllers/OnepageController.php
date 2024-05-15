@@ -178,5 +178,4 @@ class Ccc_Catalog_OnepageController extends Mage_Checkout_OnepageController
         $this->_prepareDataJSON($result);
     }
     
-
 }

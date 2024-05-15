@@ -6,12 +6,36 @@
             <version>2.1</version>
         </Ccc_Orderaddress>
     </modules>
+    <adminhtml>
+        <layout>
+            <updates>
+                <ccc_orderaddress>
+                    <file>ccc_orderaddress.xml</file>
+                </ccc_orderaddress>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <models>
             <ccc_orderaddress>
                 <class>Ccc_Orderaddress_Model</class>
             </ccc_orderaddress>
+            <sales>
+                <rewrite>
+                    <order>Ccc_Orderaddress_Model_Email</order>
+                </rewrite>
+            </sales>
         </models>
+        <blocks>
+            <ccc_orderaddress>
+                <class>Ccc_Orderaddress_Block</class>
+            </ccc_orderaddress>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_view>Ccc_Orderaddress_Block_Adminhtml_View</sales_order_view>
+                </rewrite>
+            </adminhtml>
+        </blocks>
         <resources>
             <ccc_orderaddress_setup>
                 <setup>
@@ -28,6 +52,37 @@
                     </ccc_orderaddress_varification>
                 </observers>
             </sales_order_place_after>
+            <order_cancel>
+                <observers>
+                    <ccc_order_cancel>
+                        <class>ccc_orderaddress/observer</class>
+                        <method>cancelOrder</method>
+                    </ccc_order_cancel>
+                </observers>
+            </order_cancel>
         </events>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ccc_orderaddress before="Mage_Adminhtml">Ccc_Orderaddress_Adminhtml</ccc_orderaddress>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <crontab>
+        <jobs>
+            <send_validation_email>
+                <schedule>
+                    <cron_expr>1 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>ccc_orderaddress/observer::sendValidationEmail</model>
+                </run>
+            </send_validation_email>
+        </jobs>
+    </crontab>
 </config>
