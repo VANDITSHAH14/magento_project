@@ -13,9 +13,6 @@ UpdateRate.prototype = {
     showpopup: function () {
         var JSONrate = (this.rates);
         this.rateTable = document.createElement("table");
-        // this.rateTable.appendChild("<tr>");
-        // this.tableHead = document.createElement("th");
-        // this.rateTable.appendChild(this.tableHead);
         for (var i = 1; i <= Object.keys((this.rates)).length; i++) {
 
             // to set Table header From - To - Rate
