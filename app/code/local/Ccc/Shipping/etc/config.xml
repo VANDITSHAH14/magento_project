@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ccc_Shipping>
+            <version></version>
+        </Ccc_Shipping>
+    </modules>
+    <adminhtml>
+        <layout>
+            <updates>
+                <ccc_shpping>
+                    <file>ccc_shipping.xml</file>
+                </ccc_shpping>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <ccc_shipping>
+                <class>Ccc_Shipping_Model</class>
+            </ccc_shipping>
+        </models>
+        <blocks>
+            <ccc_shipping>
+                <class>Ccc_Shipping_Block</class>
+            </ccc_shipping>
+        </blocks>
+        <helpers>
+            <shipping>
+                <class>Ccc_Shipping_Helper</class>
+            </shipping>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ccc_shipping before="Mage_Adminhtml">Ccc_Shipping_Adminhtml</ccc_shipping>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
+    

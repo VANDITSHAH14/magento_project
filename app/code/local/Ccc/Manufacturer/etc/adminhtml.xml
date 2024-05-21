@@ -6,4 +6,29 @@
             <action>adminhtml/orderstock</action>
         </manufacturer>
     </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <manufacturer translate="title" module="manufacturer">
+                        <title>Manufacturer</title>
+                        <sort_order>120</sort_order>
+                        <children>
+                            <actions translate="title">
+                                <title>Action</title>
+                                <children>
+                                    <index translate="title">
+                                        <title>OrderStock</title>
+                                    </index>
+                                    <show_Button translate="title">
+                                        <title>show_Button</title>
+                                    </show_Button>
+                                </children>
+                            </actions>
+                        </children>
+                    </manufacturer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
 </config>

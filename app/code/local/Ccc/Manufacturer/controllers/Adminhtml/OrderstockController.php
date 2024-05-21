@@ -252,5 +252,23 @@ class Ccc_Manufacturer_Adminhtml_OrderstockController extends Mage_Adminhtml_Con
             $emailTemplate->send($recipientEmail, $recipientName, $emailTemplateVariables);
         }
     }
+    public function _isAllowed()
+    {
+        $aclResource = null;
+        $action = strtolower($this->getRequest()->getActionName());
+        switch($action)
+        {
+            case 'orderstock':
+                $aclResource = 'manufacturer/actions/index';
+                break;
+            case 'show_button':
+                $aclResource = 'manufacturer/actions/show_button';
+                break;
+            default:
+                $aclResource = 'manufacturer';
+                break;
+        }
+        return Mage::getSingleton('admin/session')->isAllowed($aclResource);
+    }
 
 }

@@ -308,3 +308,21 @@
     [created_at] => 2024-05-14 12:35:40
 )
 
+2024-05-15T10:36:23+00:00 DEBUG (7): Array
+(
+    [order_id] => 276
+    [item_id] => 695
+    [brand_id] => 245
+    [mfr_id] => 2
+    [created_at] => 2024-05-15 10:36:23
+)
+
+2024-05-15T10:36:23+00:00 DEBUG (7): Array
+(
+    [order_id] => 276
+    [item_id] => 696
+    [brand_id] => 246
+    [mfr_id] => 3
+    [created_at] => 2024-05-15 10:36:23
+)
+
