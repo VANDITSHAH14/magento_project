@@ -5,7 +5,7 @@ $installer = $this;
 $installer->startSetup();
 
 /**
- * Create table 'cms/block'
+ * Create table 'ccc_banner'
  */
 $table = $installer->getConnection()
     ->newTable($installer->getTable('ccc_banner'))

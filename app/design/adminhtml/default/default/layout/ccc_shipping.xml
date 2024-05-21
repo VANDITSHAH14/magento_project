@@ -4,5 +4,13 @@
         <reference name="content">
             <block type="ccc_shipping/adminhtml_shippingmethod" name="shipping"></block>
         </reference>
+        <reference name="head">
+            <action method="addJs">
+                <script>ccc/shipping/rate_update.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/ccc/shipping/popup.css</stylesheet>
+            </action>
+        </reference>
     </adminhtml_shipping_index>
 </layout>
