@@ -80,11 +80,13 @@ UpdateRate.prototype = {
     },
     addRangePrice: function () {
         this.rowChild = document.createElement("tr");
-        this.colChild = document.createElement("td");
-        // this.input = document.createElement("input");
-        // this.input.type = "text";
-        // this.colChild.appendChild(this.input);
-        this.rowChild.appendChild(this.colChild);
+        for (var i = 1; i < 4; i++) {
+            this.colChild = document.createElement("td");
+            this.input = document.createElement("input");
+            this.input.type = "text";
+            this.colChild.appendChild(this.input);
+            this.rowChild.appendChild(this.colChild);
+        }
         this.rateTable.appendChild(this.rowChild);
     }
 }
