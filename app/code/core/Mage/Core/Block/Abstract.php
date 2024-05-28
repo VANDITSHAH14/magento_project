@@ -907,6 +907,8 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     final public function toHtml()
     {
+        // echo get_class($this);
+        // echo "<br>";
         Mage::dispatchEvent('core_block_abstract_to_html_before', array('block' => $this));
         if (Mage::getStoreConfig('advanced/modules_disable_output/' . $this->getModuleName())) {
             return '';

@@ -1,0 +1,89 @@
+<?php
+$sellerCollection = Mage::getSingleton('seller/seller')->getCollection();
+?>
+
+<select id="seller-select">
+    <?php foreach ($sellerCollection as $seller): ?>
+        <option value="<?php echo $seller->getId(); ?>">
+            <?php echo $seller->getSellerName(); ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+<button id="load-report-btn">
+    Load Report
+</button>
+<?php
+if ($this->getAllowAction()): ?>
+    <button id=assign-to-seller>
+        Assign to seller
+    </button>
+    <?php
+?>
+<?php endif; ?>
+<br>
+<div id="product-grid">
+    <?php
+    echo $this->getGridHtml();
+    ?>
+</div>
+
+<script type="text/javascript">
+    function attachEventListeners() {
+        jQuery('#load-report-btn').click(function () {
+            var sellerId = document.getElementById('seller-select').value;
+            jQuery.ajax({
+                url: '<?php echo Mage::getUrl('*/sellerreport/index'); ?>',
+                type: 'POST',
+                data: {
+                    form_key: FORM_KEY,
+                    seller_id: sellerId,
+                    is_ajax: true,
+                },
+                success: function (response) {
+                    // $('#product-grid').html(response);
+                    document.body.innerHTML = response;
+                    attachEventListeners();
+                },
+                error: function () {
+                    alert('There was an error loading the report.');
+                }
+            });
+        });
+
+        jQuery(document).ready(function ($) {
+            $('#assign-to-seller').on('click', function () {
+                var sellerId = $('#seller-select').val();
+                var checkboxes = document.querySelectorAll('.massaction-checkbox');
+                // console.log(productids);
+                var productid = [];
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked === true) {
+                        productid.push(checkbox.value);
+                    }
+                });
+                console.log(productid);
+                $.ajax({
+                    url: '<?php echo Mage::getUrl('*/sellerreport/massAssign'); ?>',
+                    type: 'POST',
+                    data: {
+                        form_key: FORM_KEY,
+                        seller_id: sellerId,
+                        product_ids: JSON.stringify(productid),
+                    },
+                    success: function (response) {
+                        // $('#product-grid').html(response);
+                        document.body.innerHTML = response;
+                        attachEventListeners();
+                    },
+                    error: function () {
+                        alert('There was an error loading the report.');
+                    }
+                });
+            });
+        });
+    }
+    jQuery(document).ready(function () {
+        attachEventListeners();
+    });
+
+</script>

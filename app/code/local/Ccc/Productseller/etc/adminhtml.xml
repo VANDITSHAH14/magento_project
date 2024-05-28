@@ -1,0 +1,70 @@
+<config>
+    <menu>
+        <customer translate="title" module="seller">
+            <title>Customers</title>
+            <!-- <sort_order>110</sort_order> -->
+            <children>
+                <seller module="seller">
+                    <title>Sellers</title>
+                    <action>adminhtml/seller</action>
+                    <!-- <sort_order>0</sort_order> -->
+                </seller>
+                <sellerreport module="seller">
+                    <title>Seller Report</title>
+                    <action>adminhtml/sellerreport</action>
+                </sellerreport>
+            </children>
+        </customer>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customers translate="title" module="seller">
+                        <title>Customer</title>
+                        <sort_order>100</sort_order>
+                        <children>
+                            <seller module="seller">
+                                <title>Seller</title>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <index translate="title">
+                                                <title>Index</title>
+                                            </index>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </seller>
+                            <sellerreport>
+                                <title>SellerReport</title>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <index translate="title">
+                                                <title>Index</title>
+                                            </index>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </sellerreport>
+                        </children>
+                    </customers>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <productseller translate="title" module="seller">
+                                        <title>seller configuration</title>
+                                    </productseller>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
