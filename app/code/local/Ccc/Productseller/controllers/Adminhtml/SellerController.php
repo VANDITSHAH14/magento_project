@@ -52,7 +52,7 @@ class Ccc_Productseller_Adminhtml_SellerController extends Mage_Adminhtml_Contro
             }
         }
 
-        $this->_title($model->getId() ? $model->getTitle() : $this->__('New Seller'));
+        $this->_title($model->getId() ? $model->getSellerName() : $this->__('New Seller'));
 
         // 3. Set entered data if was error when we do save
         $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
@@ -134,7 +134,6 @@ class Ccc_Productseller_Adminhtml_SellerController extends Mage_Adminhtml_Contro
                 // init model and delete
                 $model = Mage::getModel('seller/seller');
                 $model->load($id);
-                $title = $model->getTitle();
                 $model->delete();
                 // display success message
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('seller')->__('The seller has been deleted.'));

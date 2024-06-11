@@ -1,0 +1,25 @@
+<?php
+$filePaths = $this->getFilePath();
+$filePathsArray = preg_split('/\s+/', $filePaths);
+?>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $this->getHeaderWidth() ?>"><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $this->getButtonsHtml() ?></td>
+            <td><select id="filePathSelect" onchange="loadData()">
+                    <option>select</option>
+                    <?php foreach ($filePathsArray as $filePath): ?>
+                        <option value="<?php echo $filePath; ?>">
+                            <?php echo $filePath; ?>
+                        </option>
+                    <?php endforeach; ?> 
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="gridContainer">
+    <?php echo $this->getGridHtml(); ?>
+</div>

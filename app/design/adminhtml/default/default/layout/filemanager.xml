@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_filemanager_index>
+        <reference name="content">
+            <block type="filemanager/adminhtml_file" name="file"></block>
+        </reference>
+        <reference name='head'>
+            <action method='addJs'>
+                <script>jquery-3.6.0.min.js</script>
+            </action>
+            <action method='addJs'>
+                <script>lib/jquery/noconflict.js</script>
+            </action>
+            <action method='addJs'>
+                <script>filemanager/file.js</script>
+            </action>
+        </reference>
+    </adminhtml_filemanager_index>
+</layout>

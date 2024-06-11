@@ -1,0 +1,10 @@
+<config>
+    <menu>
+        <outlook translate="title" module="seller">
+            <title>Outlook</title>
+            <sort_order>110</sort_order>
+            <action>adminhtml/configuration</action>
+        </outlook>
+    </menu>
+</config>
+    

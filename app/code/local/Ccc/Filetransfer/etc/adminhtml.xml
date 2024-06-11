@@ -1,0 +1,9 @@
+<config>
+    <menu>
+        <filetransfer translate="title" module="filetransfer">
+            <title>File Transfer</title>
+            <sort_order>120</sort_order>
+            <action>adminhtml/filetransfer</action>
+        </filetransfer>
+    </menu>
+</config>

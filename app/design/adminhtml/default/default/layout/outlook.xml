@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_configuration_index>
+        <reference name="content">
+            <block type="outlook/adminhtml_configuration" name="configuration"></block>
+        </reference>
+    </adminhtml_configuration_index>
+    <adminhtml_configuration_new>
+        <update handle="adminhtml_configuration_edit" />
+    </adminhtml_configuration_new>
+    <adminhtml_configuration_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>lib/jquery/jquery-1.10.2.js</script>
+            </action>
+            <action method="addJs">
+                <script>outlook/event.js</script>
+            </action>
+            <!-- <action method="addCss">
+                <stylesheet>css/outlook/event.css</stylesheet>
+            </action> -->
+        </reference>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="outlook/adminhtml_configuration_edit" name="configuration_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="outlook/adminhtml_configuration_edit_tabs" name="adminhtml_configuration_edit_tabs">
+                <block type="outlook/adminhtml_configuration_edit_tab_main"
+                    name="adminhtml_configuration_edit_tab_main" />
+                <block type="outlook/adminhtml_configuration_edit_tab_event"
+                    name="adminhtml_configuration_edit_tab_event" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>adminhtml_configuration_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>event_section</name>
+                    <block>adminhtml_configuration_edit_tab_event</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_configuration_edit>
+</layout>
