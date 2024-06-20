@@ -1,0 +1,146 @@
+<?php $ticketCollection = $this->getTickets();
+// $currentPage = $ticketCollection->getCurPage();
+$totalPages = $this->getTotalPages();
+if ($totalPages):
+    for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a href="<?php echo $this->getUrl('*/*/*', array('page' => $i, '_current' => true)) ?>"><button
+                class="pagination-btn"><?php echo $i; ?></button></a>
+    <?php endfor;
+endif; ?>
+
+<div id="filter-btn-div">
+    <button id="openPopupBtn" onclick="addFilter()">Add Filter</button>
+    <?php foreach ($this->getFilters() as $filter): ?>
+        <a
+            href="<?php echo $this->getUrl('*/*/*', array('filter_id' => $filter->getId(), '_current' => true)) ?>"><button><?php echo $filter->getFilterName(); ?></button></a>
+    <?php endforeach; ?>
+</div>
+<div id="filter" class="popup">
+    <div class="popup-content">
+        <span class="close" id="close">&times;</span>
+        <form id="filter-form" method="post">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <div class="form-group">
+                <label for="status"><?php echo $this->__('Status'); ?>:</label>
+                <select id="status" name="status[]" multiple>
+                    <?php foreach ($this->getStatuses() as $status): ?>
+                        <option value="<?php echo $status->getId(); ?>"><?php echo $status->getLabel(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="asign_to"><?php echo $this->__('Assign to'); ?>:</label>
+                <select id="asign_to" name="asign_to[]" multiple>
+                    <?php foreach ($this->getAllUsers() as $user): ?>
+                        <option value="<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="created_at">Created At:</label>
+                <input id="created_at" name="created_at">
+            </div>
+            <div class="form-group">
+                <label for="last_comment"><?php echo $this->__('Last Comment'); ?>:</label>
+                <select id="last_comment" name="last_comment">
+                    <?php foreach ($this->getAllUsers() as $user): ?>
+                        <option value="<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="filter_name">Filter Name:</label>
+                <input id="filter_name" name="filter_name">
+            </div>
+            <button id="save-btn">save</button>
+        </form>
+    </div>
+</div>
+
+<table class="ticket-table">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Assign To</th>
+        <th>Assign By</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>View</th>
+    </tr>
+    <?php foreach ($ticketCollection as $ticket): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($ticket->getTitle()); ?></td>
+            <td><?php echo htmlspecialchars($ticket->getDescription()); ?></td>
+            <td><?php echo $this->getAllUser($ticket->getAsignTo())->getUsername(); ?></td>
+            <td><?php echo $this->getAllUser($ticket->getAsignBy())->getUsername(); ?></td>
+            <td><?php foreach ($this->getPriority() as $key => $value): ?>
+                    <?php if ($ticket->getPriority() == $key) {
+                        echo $value;
+                    }
+            endforeach; ?>
+            </td>
+            <td style="background-color:<?php echo $this->getStatus($ticket->getStatus())->getColorCode(); ?>">
+                <?php echo $this->getStatus($ticket->getStatus())->getLabel(); ?>
+            </td>
+            <td><a href="<?php echo $this->getUrl('adminhtml/ticket/view', array('id' => $ticket->getId())); ?>">View
+                    Ticket</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<script>
+    var j = jQuery.noConflict();
+
+    //for add filter button
+    function addFilter() {
+        document.getElementById('filter').style.display = "block";
+    }
+
+    //for close span
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the close button element
+        var closeButton = document.getElementById("close");
+
+        // Add a click event listener
+        closeButton.addEventListener("click", function () {
+            // Perform actions when the close button is clicked
+            document.getElementById('filter').style.display = "none";
+            // Add your code here to hide the modal or perform other actions
+        });
+    });
+
+
+    function saveFilter(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        var $form = document.getElementById('filter-form');
+        var $formData = new FormData($form);
+
+        j.ajax({
+            type: 'POST',
+            url: '<?php echo $this->getUrl('adminhtml/ticket/saveFilter'); ?>',
+            data: $formData,
+            processData: false,  // Don't process the data
+            contentType: false,  // Don't set any content type header
+            success: function (response) {
+                // Handle success - you might want to refresh the page or update the ticket table
+                console.log("Filter saved successfully", response);
+                document.getElementById('filter').style.display = "none";
+
+                // var filterName = document.getElementById('filter_name').value;
+                // var filterBtnDiv = document.getElementById('filter-btn-div');
+                // var filterButton = document.createElement('button');
+                // filterButton.innerText = filterName;
+                // filterButton.setAttribute('type', 'button');
+                // filterBtnDiv.appendChild(filterButton);
+            },
+            error: function (xhr, status, error) {
+                // Handle error
+                console.error("Error saving filter", status, error);
+            }
+        });
+    }
+
+    document.getElementById('save-btn').addEventListener('click', saveFilter);
+</script>

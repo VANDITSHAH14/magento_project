@@ -14,4 +14,9 @@
             <block type="filetransfer/adminhtml_configuration_edit" name="config_edit"></block>
         </reference>
     </adminhtml_filetransfer_edit>
+    <adminhtml_filetransfer_renderfiles>
+        <reference name="content">
+            <block type="filetransfer/adminhtml_files" name="filetransfer"></block>
+        </reference>
+    </adminhtml_filetransfer_renderfiles>
 </layout>

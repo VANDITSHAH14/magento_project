@@ -1,0 +1,9 @@
+<config>
+    <menu>
+        <ticket translate="title" module="ticket">
+            <title>Ticket</title>
+            <action>adminhtml/ticket</action>
+            <sort_order>120</sort_order>
+        </ticket>
+    </menu>
+</config>

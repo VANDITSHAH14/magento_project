@@ -34,7 +34,7 @@ $table = $installer->getConnection()
         'nullable' => false,
         'primary' => true,
     ), ' ID')
-    ->addColumn('config_id', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
+    ->addColumn('config_id', Varien_Db_Ddl_Table::TYPE_INTEGER, 255, array(
         'nullable' => false,
     ), 'Config Id')
     ->addColumn('host', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
@@ -46,6 +46,9 @@ $table = $installer->getConnection()
     ->addColumn('modified_date', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(
         'nullable' => true,
     ), 'Modified Date')
+    ->addForeignKey($installer->getFkName('ccc_filetransfer_file', 'config_id', 'ccc_filetransfer_configuration', 'config_id'),
+    'config_id', $installer->getTable('ccc_filetransfer_configuration'), 'config_id',
+    Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
     ->setComment('CCC Filetransfer File Table');
 $installer->getConnection()->createTable($table);
 

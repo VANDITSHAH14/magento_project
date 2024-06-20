@@ -63,7 +63,17 @@ class Ccc_Filetransfer_Block_Adminhtml_Configuration_Edit_Form extends Mage_Admi
             'title' => Mage::helper('filetransfer')->__('Port'),
         ));
 
+        $fieldset->addField('remote_path', 'text', array(
+            'name' => 'remote_path',
+            'label' => Mage::helper('filetransfer')->__('Remote Path'),
+            'title' => Mage::helper('filetransfer')->__('Remote Path'),
+        ));
 
+        $fieldset->addField('local_path', 'text', array(
+            'name' => 'local_path',
+            'label' => Mage::helper('filetransfer')->__('Local Path'),
+            'title' => Mage::helper('filetransfer')->__('Local Path'),
+        ));
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_ticket_index>
+        <reference name="content">
+            <block type="ticket/adminhtml_ticket" name="ticket"></block>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/ccc/ticket/grid.css</stylesheet>
+            </action>
+            <action method='addJs'>
+                <script>jquery-3.6.0.min.js</script>
+            </action>
+        </reference>
+    </adminhtml_ticket_index>
+    <adminhtml_ticket_view>
+        <reference name="content">
+            <block type="ticket/adminhtml_view" name="view"></block>
+        </reference>
+        <reference name="head">
+            <action method='addJs'>
+                <script>jquery-3.6.0.min.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/ccc/ticket/view.css</stylesheet>
+            </action>
+        </reference>
+    </adminhtml_ticket_view>
+</layout>

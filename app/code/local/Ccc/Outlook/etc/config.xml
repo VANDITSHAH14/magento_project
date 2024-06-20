@@ -75,7 +75,7 @@
         <jobs>
             <outlook_fetch_emails>
                 <schedule>
-                    <cron_expr>*4 * * * *</cron_expr>
+                    <cron_expr>4 * * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>outlook/observer::fetch</model>

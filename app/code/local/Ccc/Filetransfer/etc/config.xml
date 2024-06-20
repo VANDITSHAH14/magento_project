@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Ccc_Filetransfer>
-            <version>1.0</version>
+            <version>1.1</version>
         </Ccc_Filetransfer>
     </modules>
     <adminhtml>
@@ -47,9 +47,9 @@
                     <configuration>
                         <table>ccc_filetransfer_configuration</table>
                     </configuration>
-                    <file>
+                    <files>
                         <table>ccc_filetransfer_file</table>
-                    </file>
+                    </files>
                 </entities>
             </filetransfer_resource>
         </models>
@@ -65,4 +65,16 @@
             </filetransfer_setup>
         </resources>
     </global>
+    <crontab>
+        <jobs>
+            <filetransfer_fetch_file>
+                <schedule>
+                    <cron_expr>4 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>filetransfer/observer::fetch</model>
+                </run>
+            </filetransfer_fetch_file>
+        </jobs>
+    </crontab>
 </config>

@@ -63,6 +63,23 @@ class Ccc_Filetransfer_Block_Adminhtml_Configuration_Grid extends Mage_Adminhtml
             )
         );
 
+        $this->addColumn(
+            'remote_path',
+            array(
+                'header' => Mage::helper('filetransfer')->__('Remote Path'),
+                'align' => 'left',
+                'index' => 'remote_path'
+            )
+        );
+
+        $this->addColumn(
+            'local_path',
+            array(
+                'header' => Mage::helper('filetransfer')->__('Local Path'),
+                'align' => 'left',
+                'index' => 'local_path'
+            )
+        );
         return parent::_prepareColumns();
     }
     public function getRowUrl($row)

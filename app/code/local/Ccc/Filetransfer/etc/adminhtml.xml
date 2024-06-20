@@ -3,7 +3,18 @@
         <filetransfer translate="title" module="filetransfer">
             <title>File Transfer</title>
             <sort_order>120</sort_order>
-            <action>adminhtml/filetransfer</action>
+            <children>
+                <configuration module="filetransfer">
+                    <title>Configuration</title>
+                    <action>adminhtml/filetransfer</action>
+                    <!-- <sort_order>0</sort_order> -->
+                </configuration>
+                <files translate="title" module="filetransfer">
+                    <title>Files</title>
+                    <action>adminhtml/filetransfer/renderfiles</action>
+                    <sort_order>10</sort_order>
+                </files>
+            </children>
         </filetransfer>
     </menu>
 </config>

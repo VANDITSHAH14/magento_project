@@ -1,0 +1,201 @@
+<?php $id = $this->getRequest()->getParam('id'); ?>
+<?php 
+    $ticket = $this->getTickets($id);
+    $comment = $this->getComment($id);
+    ?>
+<table>
+    <thead>
+        <tr>
+            <th>Ticket Field</th>
+            <th>Ticket Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <td><?php echo htmlspecialchars($ticket->getTitle()); ?></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><?php echo htmlspecialchars($ticket->getDescription()); ?></td>
+        </tr>
+        <tr>
+            <th>Assign To</th>
+            <td class="editable-select" data-field="asign_to">
+                <span class="selected-value">
+                    <?php 
+                    foreach ($this->getAllUser() as $user) {
+                        if ($ticket->getAsignTo() == $user->getId()) {
+                            echo htmlspecialchars($user->getName());
+                            break;
+                        }
+                    }
+                    ?>
+                </span>
+                <select class="ticket-select" name="ticket[asign_to]" data-field="asign_to" style="display:none;">
+                    <?php foreach ($this->getAllUser() as $user): ?>
+                        <option value="<?php echo htmlspecialchars($user->getId()); ?>" <?php echo ($ticket->getAsignTo() == $user->getId()) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($user->getName()); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Assign By</th>
+            <td class="editable-select" data-field="asign_by">
+                <span class="selected-value">
+                    <?php 
+                    foreach ($this->getAllUser() as $user) {
+                        if ($ticket->getAsignBy() == $user->getId()) {
+                            echo htmlspecialchars($user->getName());
+                            break;
+                        }
+                    }
+                    ?>
+                </span>
+                <select class="ticket-select" name="ticket[asign_by]" data-field="asign_by" style="display:none;">
+                    <?php foreach ($this->getAllUser() as $user): ?>
+                        <option value="<?php echo htmlspecialchars($user->getId()); ?>" <?php echo ($ticket->getAsignBy() == $user->getId()) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($user->getName()); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Priority</th>
+            <td><?php foreach ($this->getPriority() as $key => $value): ?>
+                <?php if ($ticket->getPriority() == $key) echo htmlspecialchars($value); ?>
+                <?php endforeach; ?>
+            </td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td class="editable-select" data-field="status">
+                <span class="selected-value">
+                    <?php 
+                    foreach ($this->getStatus() as $status) {
+                        if ($ticket->getStatus() == $status->getId()) {
+                            echo htmlspecialchars($status->getLabel());
+                            break;
+                        }
+                    }
+                    ?>
+                </span>
+                <select class="ticket-select" name="ticket[status]" data-field="status" style="display:none;">
+                    <?php foreach ($this->getStatus() as $status): ?>
+                        <option value="<?php echo htmlspecialchars($status->getId()); ?>" <?php echo ($ticket->getStatus() == $status->getId()) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($status->getLabel()); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="comment-view">
+    <h1>Post Comment</h1>
+    <div class="comment-form">
+        <form id="comment-form" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/ticket/saveComment') ?>"
+            method="POST">
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <input type="hidden" id="ticket_id" name="ticket_id" value="<?php echo $ticket->getId() ?>">
+            <textarea name="comment_description" id="comment"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<?php if($comment->getData()){ ?>
+<div class="comment-show">
+    <h2>Previous Comments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Comment Id</th>
+                <th>Commented By</th>
+                <th>Comment</th>
+                <th>Commented At</th>
+            </tr>
+        </thead>
+        <thbody>
+            <?php foreach ($this->getComment($id) as $c): ?>
+                <tr>
+                    <td><?php echo $c->getId() ?></td>
+                    <td><?php echo $this->getUser($c->getUserId())->getUsername() ?></td>
+                    <td><?php echo $c->getCommentDescription() ?></td>
+                    <td><?php echo $c->getCreatedAt() ?></td>
+                </tr>
+
+            </thbody>
+
+        <?php endforeach; ?>
+    </table>
+</div>
+<?php } else{ ?>
+    <div class="comment-show"><h1>No Comments!</h1></div>
+    <?php } ?>
+
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+<script>
+    jQuery.noConflict();
+    jQuery(document).ready(function ($) {
+    $('.editable-select').on('dblclick', function () {
+        var $select = $(this).find('select');
+        var isHidden = $select.is(':hidden');
+        
+        // Hide all selects and show all spans
+        $('.ticket-select').hide();
+        $('.selected-value').show();
+        
+        if (isHidden) {
+            $(this).find('.selected-value').hide();
+            $select.show().focus();
+        }
+    });
+    
+    $('.ticket-select').on('change', function () {
+        var selectedValue = $(this).val();
+        var field = $(this).data('field');
+        var $parentTd = $(this).closest('td');
+        
+        // Update the display span with the new selected value
+        var selectedText = $(this).find('option:selected').text();
+        $parentTd.find('.selected-value').text(selectedText).show();
+        $(this).hide();
+        
+        // AJAX request to update the backend
+        $.ajax({
+            url: '<?php echo $this->getUrl('*/ticket/handle'); ?>',
+            type: 'POST',
+            data: {
+                form_key: FORM_KEY,
+                id:<?php echo $id;?>,
+                field: field,
+                value: selectedValue
+            },
+            success: function (response) {
+                // console.log(`Field changed: ${field}, New value: ${selectedValue}`);
+            },
+            error: function () {
+                alert('There was an error processing your request.');
+            }
+        });
+    });
+    
+    // Hide the select dropdown when it loses focus
+    $('.ticket-select').on('blur', function () {
+        var $parentTd = $(this).closest('td');
+        $parentTd.find('.selected-value').show();
+        $(this).hide();
+    });
+});
+
+CKEDITOR.replace('comment', {
+        height: 150
+    });
+</script>

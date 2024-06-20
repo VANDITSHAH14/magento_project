@@ -4,7 +4,7 @@ class Ccc_Filetransfer_Adminhtml_FiletransferController extends Mage_Adminhtml_C
     protected function _initAction()
     {
         $this->loadLayout()
-            ->_setActiveMenu('filetransfer')
+            ->_setActiveMenu('filetransfer/configuration')
             ->_addBreadcrumb(Mage::helper('filetransfer')->__('Config'), Mage::helper('filetransfer')->__('Config'))
             ->_addBreadcrumb(Mage::helper('filetransfer')->__('Manage Config'), Mage::helper('filetransfer')->__('Manage Config'))
         ;
@@ -21,6 +21,19 @@ class Ccc_Filetransfer_Adminhtml_FiletransferController extends Mage_Adminhtml_C
         $this->renderLayout();
     }
 
+    public function renderFilesAction()
+    {
+        $this->loadLayout()
+            ->_setActiveMenu('filetransfer/files')
+            ->_addBreadcrumb(Mage::helper('filetransfer')->__('Files'), Mage::helper('filetransfer')->__('Files'))
+            ->_addBreadcrumb(Mage::helper('filetransfer')->__('Manage Files'), Mage::helper('filetransfer')->__('Manage Files'))
+        ;
+        $this->_title($this->__('Files'))
+             ->_title($this->__('Files'))
+             ->_title($this->__('Manage Files'));
+
+        $this->renderLayout();
+    }
     public function newAction()
     {
         // the same form is used to create and edit

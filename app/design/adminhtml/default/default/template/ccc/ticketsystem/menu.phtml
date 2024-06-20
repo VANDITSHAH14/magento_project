@@ -1,0 +1,190 @@
+<div class="nav-bar">
+    <!-- menu start -->
+    <?php echo $this->getMenuLevel($this->getMenuArray()); ?>
+    <!-- menu end -->
+    <button id="openPopupBtn">Create ticket</button>
+</div>
+<div id="popupForm" class="popup">
+    <div class="popup-content">
+        <span class="close" id="closePopupBtn">&times;</span>
+        <h2>Create Ticket</h2>
+        <form id="ticket-form" action="<?php echo $this->getUrl('adminhtml/ticket/save'); ?>" method="post">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <div class="form-group">
+                <label for="title"><?php echo $this->__('Title'); ?>:</label>
+                <input type="text" id="title" name="ticket[title]">
+            </div>
+            <div class="form-group">
+                <label for="description"><?php echo $this->__('Description'); ?>:</label>
+                <textarea id="description" name="ticket[description]" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="asign_to"><?php echo $this->__('Assign to'); ?>:</label>
+                <select id="asign_to" name="ticket[asign_to]">
+                    <?php foreach ($this->getAllUser() as $user): ?>
+                        <option value="<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="priority"><?php echo $this->__('Priority'); ?>:</label>
+                <select id="priority" name="ticket[priority]">
+                    <?php foreach ($this->getPriority() as $key => $value): ?>
+                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status"><?php echo $this->__('Status'); ?>:</label>
+                <select id="status" name="ticket[status]">
+                    <?php foreach ($this->getStatus() as $status): ?>
+                        <option value="<?php echo $status->getId(); ?>"><?php echo $status->getLabel(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="asign_by"><?php echo $this->__('Assign By'); ?>:</label>
+                <select id="asign_by" name="ticket[asign_by]">
+                    <?php foreach ($this->getAllUser() as $user): ?>
+                        <option value="<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<script>
+    // script.js
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the modal
+        var popup = document.getElementById("popupForm");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openPopupBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementById("closePopupBtn");
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            popup.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            popup.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    });
+</script>
+
+
+<style>
+   /* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background with opacity */
+    padding-top: 60px;
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    width: 80%;
+    max-width: 600px; /* Maximum width for larger screens */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Space below the title */
+    color: #333; /* Darker color for the title */
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    width: 100%;
+    max-width: 600px;
+}
+
+label {
+    width: 30%;
+    text-align: left;
+    font-weight: bold; /* Bold labels */
+    color: #555; /* Darker color for labels */
+}
+
+input, textarea, select {
+    width: 70%;
+    margin-left: 10px;
+    padding: 10px; /* Padding inside input elements */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    font-size: 14px; /* Larger font size */
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+</style>
