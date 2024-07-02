@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_similar_index>
+        <reference name="content">
+            <block type="items/adminhtml_item" name="similar_item"></block>
+        </reference>
+    </adminhtml_similar_index>
+    <adminhtml_similar_new>
+        <update handle="adminhtml_similar_edit" />
+    </adminhtml_similar_new>
+    <adminhtml_similar_edit>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="items/adminhtml_item_edit" name="similar_item_edit"></block>
+        </reference>
+    </adminhtml_similar_edit>
+    <adminhtml_itemreport_index>
+        <reference name='head'>
+            <action method='addJs'>
+                <script>jquery-3.6.0.min.js</script>
+            </action>
+            <action method='addJs'>
+                <script>ccc/item/report.js</script>
+            </action>
+            <action method='addCss'>
+                <script>css/ccc/item/report.css</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="items/adminhtml_itemreport" name="itemreport"></block>
+        </reference>
+    </adminhtml_itemreport_index>
+</layout>

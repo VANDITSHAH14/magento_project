@@ -1,0 +1,21 @@
+<div class="container">
+    <div id="left" class="left-panel" width="400px">
+        <input type="text" id="searchBox" class="search-box" placeholder="Search...">
+        <button type="button" id="loadButton" data-url="<?php echo Mage::getUrl('*/itemreport/index'); ?>">Load</button>
+        <?php if ($this->getRequest()->getParam('query')) {
+            echo $this->getGridHtml();
+            if ($this->getAllowAction()): ?>
+                <button id="show-items" data-name="<?php echo $this->getProductSku(); ?>"
+                    data-url="<?php echo Mage::getUrl('*/itemreport/index'); ?>">
+                    Show Similar Items
+                </button>
+            <?php endif;
+        }
+        ?>
+    </div>
+    <div class="right-panel">
+        <?php if ($this->getRequest()->getParam('is_ajax')) {
+            echo $this->getGridHtml();
+        } ?>
+    </div>
+</div>

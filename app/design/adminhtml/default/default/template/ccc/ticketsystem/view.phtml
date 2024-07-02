@@ -1,8 +1,8 @@
 <?php $id = $this->getRequest()->getParam('id'); ?>
-<?php 
-    $ticket = $this->getTickets($id);
-    $comment = $this->getComment($id);
-    ?>
+<?php
+$ticket = $this->getTickets($id);
+$comment = $this->getComment($id);
+?>
 <table>
     <thead>
         <tr>
@@ -23,7 +23,7 @@
             <th>Assign To</th>
             <td class="editable-select" data-field="asign_to">
                 <span class="selected-value">
-                    <?php 
+                    <?php
                     foreach ($this->getAllUser() as $user) {
                         if ($ticket->getAsignTo() == $user->getId()) {
                             echo htmlspecialchars($user->getName());
@@ -45,7 +45,7 @@
             <th>Assign By</th>
             <td class="editable-select" data-field="asign_by">
                 <span class="selected-value">
-                    <?php 
+                    <?php
                     foreach ($this->getAllUser() as $user) {
                         if ($ticket->getAsignBy() == $user->getId()) {
                             echo htmlspecialchars($user->getName());
@@ -66,7 +66,8 @@
         <tr>
             <th>Priority</th>
             <td><?php foreach ($this->getPriority() as $key => $value): ?>
-                <?php if ($ticket->getPriority() == $key) echo htmlspecialchars($value); ?>
+                    <?php if ($ticket->getPriority() == $key)
+                        echo htmlspecialchars($value); ?>
                 <?php endforeach; ?>
             </td>
         </tr>
@@ -74,7 +75,7 @@
             <th>Status</th>
             <td class="editable-select" data-field="status">
                 <span class="selected-value">
-                    <?php 
+                    <?php
                     foreach ($this->getStatus() as $status) {
                         if ($ticket->getStatus() == $status->getId()) {
                             echo htmlspecialchars($status->getLabel());
@@ -94,49 +95,57 @@
         </tr>
     </tbody>
 </table>
-
-<div class="comment-view">
-    <h1>Post Comment</h1>
-    <div class="comment-form">
-        <form id="comment-form" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/ticket/saveComment') ?>"
-            method="POST">
-            <?php echo $this->getBlockHtml('formkey') ?>
-            <input type="hidden" id="ticket_id" name="ticket_id" value="<?php echo $ticket->getId() ?>">
-            <textarea name="comment_description" id="comment"></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
+<div id="comments-container">
+    <div class="comment-view">
+        <h1>Post Comment</h1>
+        <div class="comment-form-container">
+            <div class="comment-form">
+                <form id="comment-form" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/ticket/saveComment'); ?>" 
+                method="post">
+                    <?php echo $this->getBlockHtml('formkey') ?>
+                    <input type="hidden" id="ticket_id" name="ticket_id" value="<?php echo $ticket->getId() ?>">
+                    <textarea name="comment_description" id="comment"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<?php if($comment->getData()){ ?>
-<div class="comment-show">
-    <h2>Previous Comments</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Comment Id</th>
-                <th>Commented By</th>
-                <th>Comment</th>
-                <th>Commented At</th>
-            </tr>
-        </thead>
-        <thbody>
-            <?php foreach ($this->getComment($id) as $c): ?>
+
+
+<table id="comments-table">
+    <tbody></tbody>
+</table>
+
+<?php if ($comment->getData()) { ?>
+    <div class="comment-show">
+        <h2>Previous Comments</h2>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $c->getId() ?></td>
-                    <td><?php echo $this->getUser($c->getUserId())->getUsername() ?></td>
-                    <td><?php echo $c->getCommentDescription() ?></td>
-                    <td><?php echo $c->getCreatedAt() ?></td>
+                    <th>Comment Id</th>
+                    <th>Commented By</th>
+                    <th>Comment</th>
+                    <th>Commented At</th>
                 </tr>
-
-            </thbody>
-
-        <?php endforeach; ?>
-    </table>
-</div>
-<?php } else{ ?>
-    <div class="comment-show"><h1>No Comments!</h1></div>
-    <?php } ?>
+            </thead>
+            <tbody>
+                <?php foreach ($this->getComment($id) as $c): ?>
+                    <tr>
+                        <td><?php echo $c->getId() ?></td>
+                        <td><?php echo $this->getUser($c->getUserId())->getUsername() ?></td>
+                        <td><?php echo $c->getCommentDescription() ?></td>
+                        <td><?php echo $c->getCreatedAt() ?></td>
+                    </tr>
+                </tbody>
+            <?php endforeach; ?>
+        </table>
+    </div>
+<?php } else { ?>
+    <div class="comment-show">
+        <h1>No Comments!</h1>
+    </div>
+<?php } ?>
 
 
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
@@ -144,58 +153,58 @@
 <script>
     jQuery.noConflict();
     jQuery(document).ready(function ($) {
-    $('.editable-select').on('dblclick', function () {
-        var $select = $(this).find('select');
-        var isHidden = $select.is(':hidden');
-        
-        // Hide all selects and show all spans
-        $('.ticket-select').hide();
-        $('.selected-value').show();
-        
-        if (isHidden) {
-            $(this).find('.selected-value').hide();
-            $select.show().focus();
-        }
-    });
-    
-    $('.ticket-select').on('change', function () {
-        var selectedValue = $(this).val();
-        var field = $(this).data('field');
-        var $parentTd = $(this).closest('td');
-        
-        // Update the display span with the new selected value
-        var selectedText = $(this).find('option:selected').text();
-        $parentTd.find('.selected-value').text(selectedText).show();
-        $(this).hide();
-        
-        // AJAX request to update the backend
-        $.ajax({
-            url: '<?php echo $this->getUrl('*/ticket/handle'); ?>',
-            type: 'POST',
-            data: {
-                form_key: FORM_KEY,
-                id:<?php echo $id;?>,
-                field: field,
-                value: selectedValue
-            },
-            success: function (response) {
-                // console.log(`Field changed: ${field}, New value: ${selectedValue}`);
-            },
-            error: function () {
-                alert('There was an error processing your request.');
+        $('.editable-select').on('dblclick', function () {
+            var $select = $(this).find('select');
+            var isHidden = $select.is(':hidden');
+
+            // Hide all selects and show all spans
+            $('.ticket-select').hide();
+            $('.selected-value').show();
+
+            if (isHidden) {
+                $(this).find('.selected-value').hide();
+                $select.show().focus();
             }
         });
-    });
-    
-    // Hide the select dropdown when it loses focus
-    $('.ticket-select').on('blur', function () {
-        var $parentTd = $(this).closest('td');
-        $parentTd.find('.selected-value').show();
-        $(this).hide();
-    });
-});
 
-CKEDITOR.replace('comment', {
+        $('.ticket-select').on('change', function () {
+            var selectedValue = $(this).val();
+            var field = $(this).data('field');
+            var $parentTd = $(this).closest('td');
+
+            // Update the display span with the new selected value
+            var selectedText = $(this).find('option:selected').text();
+            $parentTd.find('.selected-value').text(selectedText).show();
+            $(this).hide();
+
+            // AJAX request to update the backend
+            $.ajax({
+                url: '<?php echo $this->getUrl('*/ticket/handle'); ?>',
+                type: 'POST',
+                data: {
+                    form_key: FORM_KEY,
+                    id: <?php echo $id; ?>,
+                    field: field,
+                    value: selectedValue
+                },
+                success: function (response) {
+                    // console.log(`Field changed: ${field}, New value: ${selectedValue}`);
+                },
+                error: function () {
+                    alert('There was an error processing your request.');
+                }
+            });
+        });
+
+        // Hide the select dropdown when it loses focus
+        $('.ticket-select').on('blur', function () {
+            var $parentTd = $(this).closest('td');
+            $parentTd.find('.selected-value').show();
+            $(this).hide();
+        });
+    });
+
+    CKEDITOR.replace('comment_description', {
         height: 150
     });
 </script>

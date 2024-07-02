@@ -157,7 +157,53 @@ table td .priority {
     background-color: #f9f9f9;
 }
 
+.comment-view {
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
 
+.comment-buttons {
+    margin-top: 10px;
+}
+
+.comment-reply {
+    margin-top: 10px;
+}
+
+.comment-reply textarea {
+    width: 150px;
+    height: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.comment-content,
+.comment-reply-content {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    vertical-align: top;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.comment-line {
+    border-left: 1px solid #ccc;
+    margin-left: 10px;
+    padding-left: 10px;
+}
 
 
 /* Responsive adjustments */
